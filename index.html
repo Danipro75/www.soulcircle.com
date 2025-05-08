@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOULCIRCLE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #fumo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: url('https://i.gifer.com/UqE9.gif') repeat;
+            opacity: 0.08;
+            animation: fumoAnim 60s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes fumoAnim {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 1000px 1000px;
+            }
+        }
+
+        body {
+            background: linear-gradient(-45deg, #000000, #1a0000, #330000, #660000);
+            background-size: 400% 400%;
+            animation: luciConcerto 10s ease infinite;
+            color: #fff;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        @keyframes luciConcerto {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #111;
+            height: 230px;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .banner {
+            flex-grow: 1;
+            height: 200px;
+            object-fit: cover;
+            margin: 0 20px;
+        }
+
+        nav {
+            background-color: #222;
+            padding: 10px 0;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #e60000;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .menu li a:hover {
+            background-color: #ffcc00;
+            color: black;
+            border-radius: 5px;
+        }
+
+/* === NUOVO LAYOUT A TRE COLONNE === */
+        .layout {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 20px;
+            padding: 0 10px;
+        }
+
+        .side {
+            width: 15%;
+            padding: 10px;
+            position: sticky;
+            top: 20px;
+            z-index: 2;
+        }
+
+        .main-content {
+            width: 70%;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .side-banner {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .side {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+}
+
+section {
+    text-align: center;
+    padding: 60px 20px;
+    margin: 40px 0;
+    border-top: 2px solid #e60000;
+    border-bottom: 2px solid #e60000;
+}
+
+section h2 {
+    font-family: 'Algerian', 'Rockwell', sans-serif;
+    font-size: 48px;
+    color: #e60000;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 6px black;
+    margin-bottom: 30px;
+}
+
+section p {
+    font-size: 18px;
+    color: #ddd;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #aaa;
+}
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border: 5px solid #e60000;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+    animation: zoomIn 0.3s ease;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10000;
+    transition: 0.3s;
+}
+
+.lightbox-close:hover {
+    color: #ffcc00;
+    transform: scale(1.2);
+}
+
+.lightbox-content {
+    text-align: center;
+    max-width: 90%;
+}
+
+.lightbox-caption {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #ffcc00;
+    text-shadow: 1px 1px 4px black;
+}
+
+/* Animazioni */
+@keyframes fadeIn {
+    from { background-color: rgba(0, 0, 0, 0); }
+    to   { background-color: rgba(0, 0, 0, 0.8); }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+.members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.member {
+    width: 200px;
+    text-align: center;
+}
+
+.member img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.member img:hover {
+    transform: scale(1.05);
+}
+
+.member h3 {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #ffcc00;
+}
+
+.member p {
+    font-size: 16px;
+    color: #ccc;
+}
+aside.side-left,
+aside.side-right {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+/* Scrollbar personalizzata (opzionale ma raccomandata) */
+aside::-webkit-scrollbar {
+    width: 8px;
+}
+
+aside::-webkit-scrollbar-thumb {
+    background-color: #e60000;
+    border-radius: 4px;
+}
+.layout {
+    display: flex;
+    justify-content: space-between;
+}
+main {
+    flex-grow: 1;
+    padding: 20px;
+}
+aside.side-left,
+aside.side-right {
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.blinking-text {
+    position: absolute;
+    top: 370px;
+    left: 22%;
+    transform: translateX(-50%);
+    transform: rotate(-45deg);
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffff33; /* giallo fluo */
+    text-shadow:
+        0 0 5px #ffff33,
+        0 0 10px #ffff33,
+        0 0 20px #ffff33,
+        0 0 40px #ffcc00,
+        0 0 60px #ffcc00;
+    animation: neonBlink 1.2s infinite;
+    padding: 6px 12px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.blinking-text1 {
+    position: absolute;
+    top: 280px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffff33; /* giallo fluo */
+    text-shadow:
+        0 0 5px #ffff33,
+        0 0 10px #ffff33,
+        0 0 20px #ffff33,
+        0 0 40px #ffcc00,
+        0 0 60px #ffcc00;
+    animation: neonBlink 1.2s infinite;
+    padding: 6px 12px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+/* Effetto lampeggiante neon */
+@keyframes neonBlink {
+    0%, 100% {
+        opacity: 1;
+        text-shadow:
+            0 0 5px #ffff33,
+            0 0 10px #ffff33,
+            0 0 20px #ffff33,
+            0 0 40px #ffcc00,
+            0 0 60px #ffcc00;
+    }
+    50% {
+        opacity: 0.4;
+        text-shadow:
+            0 0 2px #999900,
+            0 0 4px #999900,
+            0 0 8px #cccc00;
+    }
+}
+
+/* Animazione lampeggiante */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+    </style>
+</head>
+<body>
+    <div id="fumo"></div>
+
+    <header>
+
+        <img src="immagini/Simbolo.gif" alt="Logo sinistra" class="logo" data-caption="Banner sinistro">
+<!--          <div class="blinking-text">LIVE!</div>-->
+        <img src="immagini/Soul_$.jpg" alt="Banner centrale" class="banner">
+        <img src="immagini/Simbolo.gif" alt="Logo destra" class="logo">
+          <div class="blinking-text1">!!!!!!!!    LET'S ROCK    !!!!!!!!</div>
+    </header>
+
+    <nav>
+        <ul class="menu">
+            <li><a href="#chisiamo">CHI SIAMO</a></li>
+            <li><a href="#date">DATE CONCERTI</a></li>
+            <li><a href="#social">CANALI SOCIAL</a></li>
+            <li><a href="#video">VIDEO</a></li>
+            <li><a href="#contatti">CONTATTI</a></li>
+        </ul>
+    </nav>
+
+    <div class="layout">
+        <!-- Colonna sinistra -->
+        <aside class="side left">
+        <h3 class="side-title">Storico Eventi</h3>
+            <!--<img src="immagini/banner1.jpg" alt="Banner sinistro" class="side-banner">-->
+            <img src="immagini/foto11.jpg" alt="Foto 1" class="side-banner zoomable" data-caption="CIUFFENNA ON THE ROCK - Loro Ciuffenna">
+            <img src="immagini/foto21.jpg" alt="Foto 2" class="side-banner zoomable" data-caption="LA DRINKERIA - San Giovanni Valdarno">
+            <img src="immagini/foto31a.jpg" alt="Foto 3" class="side-banner zoomable" >
+            <img src="immagini/foto31b.jpg" alt="Foto 3" class="side-banner zoomable" >
+            <img src="immagini/foto41a.jpg" alt="Foto 4" class="side-banner zoomable" >
+            <img src="immagini/foto41b.jpg" alt="Foto 3" class="side-banner zoomable" >
+            <img src="immagini/foto51.jpg" alt="Foto 5" class="side-banner zoomable" >
+            <img src="immagini/foto61.jpg" alt="Foto 6" class="side-banner zoomable" >
+            <img src="immagini/foto71.jpg" alt="Foto 6" class="side-banner zoomable" >
+        </aside>
+
+        <!-- Contenuto principale -->
+        <main class="main-content">
+<section id="chisiamo">
+    <h2>Chi Siamo</h2>
+    <p>Siamo i SoulCircle, un'anima rock con radici profonde. Le nostre note vibrano tra passato e presente, tra cuori e amplificatori. Vivi la nostra musica.</p>
+
+    <div class="members">
+        <div class="member">
+            <img src="immagini/spataffi.jpg" alt="Spataffi Alessandro" class="zoomable" data-caption="Spataffi Alessandro – Singer">
+            <h3>Spataffi Alessandro</h3>
+        </div>
+        <div class="member">
+            <img src="immagini/minigrilli.jpg" alt="Minigrilli Luciano" class="zoomable" data-caption="Minigrilli Luciano – Bass Guitar">
+            <h3>Minigrilli Luciano</h3>
+        </div>
+        <div class="member">
+            <img src="immagini/cigolini.jpg" alt="Cigolini Giorgio" class="zoomable" data-caption="Cigolini Giorgio – Drummer">
+            <h3>Giorgio Cigolini</h3>
+        </div>
+        <div class="member">
+            <img src="immagini/perruzza.jpg" alt="Perruzza Graziano Rocco" class="zoomable" data-caption="Perruzza Graziano Rocco – Lead Guitar">
+            <h3>Perruzza Graziano Rocco</h3>
+        </div>
+        <div class="member">
+            <img src="immagini/procelli.jpg" alt="Procelli Daniele" class="zoomable" data-caption="Procelli Daniele – Rithm Guitar">
+            <h3>Procelli Daniele</h3>
+        </div>
+    </div>
+</section>
+
+            <section id="date">
+                <h2>Date Concerti</h2>
+                <p>Preparati a scatenarti con noi! Scopri tutte le date dei nostri live e vieni a far tremare il palco!</p>
+            </section>
+
+            <section id="social">
+                <h2>Canali Social</h2>
+                <p>Seguici su Facebook e YouTube per restare aggiornato su tutte le novità e i dietro le quinte della band.</p>
+                <p><a href="https://www.youtube.com/@SoulCircle_band" target="_blank">youtube.com/@SoulCircle_band</a></p>
+            </section>
+
+            <section id="video">
+                <h2>Video</h2>
+                <p>Guarda le nostre performance live, videoclip ufficiali e momenti speciali direttamente dal mondo dei SoulCircle.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/7BZQD2BK9qw" 
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+            <section id="contatti">
+                <h2>Contatti</h2>
+                <p>Per INFO scrivici su WhatsUp al: <strong>+39 3471754804</strong> o scrivici a <a href="mailto:dprocelli@libero.it">dprocelli@libero.it</a></p>
+            </section>
+        </main>
+
+        <!-- Colonna destra -->
+        <aside class="side right">
+        <h3 class="side-title">Foto</h3>
+            <!--<img src="immagini/banner2.jpg" alt="Banner destro" class="side-banner">-->
+            <img src="immagini/foto1.jpg" alt="Foto 1" class="side-banner zoomable" data-caption="WIP-Work in Progress - Terranuova B.ni">
+            <img src="immagini/foto2.jpg" alt="Foto 2" class="side-banner zoomable" data-caption="MUSICA in STRADA - San Giovanni Valdarno">
+            <img src="immagini/foto3.jpg" alt="Foto 3" class="side-banner zoomable" >
+            <img src="immagini/foto4.jpg" alt="Foto 4" class="side-banner zoomable" >
+            <img src="immagini/foto5.jpg" alt="Foto 5" class="side-banner zoomable" >
+            <img src="immagini/foto6.jpg" alt="Foto 6" class="side-banner zoomable" >
+        </aside>
+    </div>
+
+    <footer>
+        &copy; 2025 SoulCircle. Tutti i diritti riservati.
+    </footer>
+    <div id="lightbox" class="lightbox">
+    <span id="lightbox-close" class="lightbox-close">&times;</span>
+    <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Ingrandimento">
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+</div>
+<script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.zoomable').forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = img.getAttribute('data-caption') || '';
+            lightbox.style.display = 'flex';
+        });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>

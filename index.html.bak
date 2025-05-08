@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOULCIRCLE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #fumo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: url('https://i.gifer.com/UqE9.gif') repeat;
+            opacity: 0.08;
+            animation: fumoAnim 60s linear infinite;
+            z-index: 1;
+            }
+
+        @keyframes fumoAnim {
+            0% {
+            background-position: 0 0;
+               }
+            100% {
+            background-position: 1000px 1000px;
+               }
+            }
+
+        body {
+            background: linear-gradient(-45deg, #000000, #1a0000, #330000, #660000);
+            background-size: 400% 400%;
+            animation: luciConcerto 10s ease infinite;
+            color: #fff;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        @keyframes luciConcerto {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #111;
+            height: 230px;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .banner {
+            flex-grow: 1;
+            height: 200px;
+            object-fit: cover;
+            margin: 0 20px;
+        }
+
+        nav {
+            background-color: #222;
+            padding: 10px 0;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #e60000;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .menu li a:hover {
+            background-color: #ffcc00;
+            color: black;
+            border-radius: 5px;
+        }
+
+        section {
+            text-align: center;
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-top: 2px solid #e60000;
+            border-bottom: 2px solid #e60000;
+        }
+
+        section h2 {
+            font-family: 'Algerian', 'Rockwell', sans-serif;
+            font-size: 48px;
+            color: #e60000;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 6px black;
+            margin-bottom: 30px;
+        }
+
+        section p {
+            font-size: 18px;
+            color: #ddd;
+            background-color: #111;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="fumo">
+    </div> <!-- EFFETTO FUMO -->
+
+  
+<header>
+    <img src="immagini/Simbolo.gif" alt="Sinistra" class="logo">
+    <img src="immagini/Soul_$.jpg" alt="Centrale" class="banner">
+    <img src="immagini/Simbolo.gif" alt="Destra" class="logo">
+</header>
+
+<nav>
+    <ul class="menu">
+        <li><a href="#chisiamo">CHI SIAMO</a></li>
+        <li><a href="#date">DATE CONCERTI</a></li>
+        <li><a href="#social">CANALI SOCIAL</a></li>
+        <li><a href="#video">VIDEO</a></li>
+        <li><a href="#contatti">CONTATTI</a></li>
+    </ul>
+</nav>
+
+<section id="chisiamo">
+    <h2>Chi Siamo</h2>
+    <p>Siamo i SoulCircle, un'anima rock con radici profonde. Le nostre note vibrano tra passato e presente, tra cuori e amplificatori. Vivi la nostra musica.</p>
+    <p>Singer - Spataffi Alessandro</p>
+    <p>Bass Guitar - Minigrilli Luciano</p>
+    <p>Drum - Giorgio Cigolini</p>
+    <p>Lead Guitar - Perruzza Graziano Rocco</p>
+    <p>Rithm Guitar - Procelli Daniele</p>
+</section>
+
+<section id="date">
+    <h2>Date Concerti</h2>
+    <p>Preparati a scatenarti con noi! Scopri tutte le date dei nostri live e vieni a far tremare il palco!</p>
+</section>
+
+<section id="social">
+    <h2>Canali Social</h2>
+    <p>Seguici su Facebook e YouTube per restare aggiornato su tutte le novità e i dietro le quinte della band.</p>
+    <p><a href="https://www.youtube.com/@SoulCircle_band" target="_blank">Visita il nostro canale YouTube</a></p>
+</section>
+
+<section id="video">
+    <h2>Video</h2>
+    <p>Guarda le nostre performance live, videoclip ufficiali e momenti speciali direttamente dal mondo dei SoulCircle.</p>
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/7BZQD2BK9qw" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
+</section>
+<section id="contatti">
+    <h2>Contatti</h2>
+    <p>Per qualsiasi informazione chiamaci al: <strong>+39 3471754804</strong> o scrivici a <a href="mailto:dprocelli@libero.it">dprocelli@libero.it</a></p>
+</section>
+<footer style="text-align: center; padding: 20px; background-color: #111; color: #aaa;">
+    &copy; 2025 SoulCircle. Tutti i diritti riservati.
+</footer>
+</body>
+</html>
+
