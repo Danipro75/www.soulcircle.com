@@ -55,28 +55,24 @@
 
         header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
             padding: 10px;
             background-color: #111;
-            height: auto;
-            text-align: center;
-            position: relative;
-            gap: 20px
+            height: 230px;
         }
 
         .logo {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
         }
 
         .banner {
-            width: 300px
-            height: auto;
-            max-width:100%
+            flex-grow: 1;
+            height: 200px;
             object-fit: cover;
+            margin: 0 20px;
         }
 
         nav {
@@ -150,8 +146,8 @@
 @media (max-width: 768px) {
     .layout {
         flex-direction: row;
-        flex-wrap:nowrap;
-        align-items: flex-start;
+        flex-wrap:nowrap
+        align-items: stretch;
     }
 
     .side {
