@@ -143,6 +143,95 @@
         align-items: center;
     }
 
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .side {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: auto;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .side-banner {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+        margin: 10px auto;
+    }
+
+    .banner {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .blinking-text,
+    .blinking-text1 {
+        position: static;
+        transform: none;
+        font-size: 22px;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu li {
+        margin: 8px 0;
+    }
+
+    .menu li a {
+        font-size: 20px;
+    }
+
+    section h2 {
+        font-size: 32px;
+    }
+
+    .member {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .social-icons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .subscribe-button,
+    .fb-follow-button {
+        width: 90%;
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
     .side {
         display: none;
     }
@@ -306,7 +395,7 @@ footer {
 }
 aside.side-left,
 aside.side-right {
-    margin-top: 100px
+    margin-top: 100px;
     width: 220px;
     flex-shrink: 0;
     position: sticky;
