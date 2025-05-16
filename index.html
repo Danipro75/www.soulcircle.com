@@ -110,45 +110,42 @@
 
     /* Menu orizzontale */
     nav {
-      background-color: #222;
-      padding: 10px 0;
-      overflow-x: auto;
-      white-space: nowrap;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
+  background-color: #222;
+  padding: 10px 0;
+}
 
     .menu {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 
-    .menu::-webkit-scrollbar {
-      display: none;
-    }
+.menu::-webkit-scrollbar {
+  display: none;
+}
 
-    .menu li {
-      margin: 0 15px;
-    }
+.menu li {
+  margin: 0 15px;
+}
 
-    .menu li a {
-      text-decoration: none;
-      color: #e60000;
-      font-size: 24px;
-      font-weight: bold;
-      text-transform: uppercase;
-      padding: 10px 15px;
-      transition: 0.3s;
-    }
+.menu li a {
+  text-decoration: none;
+  color: #e60000;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  transition: 0.3s;
+}
 
-    .menu li a:hover {
-      background-color: #ffcc00;
-      color: black;
-      border-radius: 5px;
-    }
+.menu li a:hover {
+  background-color: #ffcc00;
+  color: black;
+  border-radius: 5px;
+}
 
     /* Layout a tre colonne */
     .layout {
@@ -368,6 +365,24 @@
 
     /* Media Query – Versione Mobile */
     @media (max-width: 768px) {
+    .menu {
+    flex-direction: column;
+    align-items: center;
+    overflow-x: visible;
+     }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .menu li a {
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+  }
       .logo {
         width: 100px;
         height: 100px;
