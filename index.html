@@ -110,48 +110,46 @@
     }
 
     /* Menu orizzontale */
-    <nav>
-  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-  <ul class="menu" id="menu">
-    <li><a href="#chisiamo">CHI SIAMO</a></li>
-    <li><a href="#date">DATE CONCERTI</a></li>
-    <li><a href="#social">CANALI SOCIAL</a></li>
-    <li><a href="#video">VIDEO</a></li>
-    <li><a href="#contatti">CONTATTI</a></li>
-  </ul>
-</nav>
+    nav {
+      background-color: #222;
+      padding: 10px 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
 
-.menu-toggle {
-  display: none;
-  font-size: 30px;
-  color: #ffcc00;
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: #222;
-}
+    .menu {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
 
-/* Mobile: mostra hamburger, nascondi menu inizialmente */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
+    .menu::-webkit-scrollbar {
+      display: none;
+    }
 
-  .menu {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    background-color: #111;
-    width: 100%;
-  }
+    .menu li {
+      margin: 0 15px;
+    }
 
-  .menu.show {
-    display: flex;
-  }
+    .menu li a {
+      text-decoration: none;
+      color: #e60000;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 15px;
+      transition: 0.3s;
+    }
 
-  .menu li {
-    margin: 10px 0;
-  }
-}
+    .menu li a:hover {
+      background-color: #ffcc00;
+      color: black;
+      border-radius: 5px;
+    }
 
     /* Layout a tre colonne */
     .layout {
@@ -604,13 +602,5 @@
       }
     });
   </script>
-  <script>
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('menu');
-
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('show');
-  });
-</script>
 </body>
 </html>
