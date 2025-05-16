@@ -365,6 +365,39 @@
 
     /* Media Query – Versione Mobile */
     @media (max-width: 768px) {
+     header {
+    flex-direction: row;      /* Mantiene i tre elementi in linea */
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: auto;
+    width: 100vw;
+  }
+
+  .logo {
+    width: 20vw;              /* Logo proporzionale alla larghezza dello schermo */
+    height: auto;
+    max-width: 80px;
+  }
+
+  .banner {
+    flex-grow: 1;
+    max-width: 60vw;          /* Occupa il centro senza superare i loghi */
+    height: auto;
+    object-fit: contain;
+    margin: 0 5px;
+  }
+
+  .blinking-text1 {
+    position: relative;
+    top: 0;
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
     .menu {
     flex-direction: column;
     align-items: center;
