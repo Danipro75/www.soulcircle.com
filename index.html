@@ -159,13 +159,13 @@
       margin-top: 120px;
       padding: 0 10px;
       flex-wrap: nowrap;
+      width: 100%;
       overflow-x: auto;
-      min-width: 100vw;
     }
 
     .side {
-      width: 160px;
-      min-width: 160px;
+      width: 200px;
+      min-width: 200px;
       padding: 10px;
       position: sticky;
       top: 20px;
@@ -401,22 +401,26 @@
       }
 
       .layout {
-        overflow-x: auto;
-        min-width: 100vw;
-        flex-wrap: nowrap;
-        padding: 0 5px;
-      }
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
 
-      .main-content {
-        width: 50%;
-        padding: 0 10px;
-      }
+  .main-content {
+    width: 100%;
+  }
 
-      .side {
-        width: 120px;
-        min-width: 120px;
-        padding: 5px;
-      }
+  .side {
+    width: 90%;
+    min-width: auto;
+    position: static;
+    top: auto;
+    z-index: auto;
+  }
+
+  .side.right {
+    margin-top: 20px;
+  }
 
       section h2 {
         font-size: 32px;
