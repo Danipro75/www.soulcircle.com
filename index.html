@@ -365,6 +365,46 @@
     }
 
     /* Media Query – Versione Mobile */
+    @media (max-width: 768px) and (orientation: landscape) {
+  header {
+    height: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .banner {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 10px;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .blinking-text1 {
+    font-size: 18px;
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 10px auto;
+    text-align: center;
+    z-index: 2;
+  }
+}
     @media (max-width: 480px) {
     .blinking-text1 {
     position: relative; /* era absolute */
