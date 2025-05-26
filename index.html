@@ -409,28 +409,36 @@
     z-index: 2;
     width: max-content;
   }
+   nav {
+    overflow-x: auto;
+  }
+
   .menu {
     display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     white-space: nowrap;
-    padding: 5px;
-    gap: 5px;
+    gap: 10px;
     justify-content: flex-start;
-    scrollbar-width: none; /* nasconde la scrollbar su Firefox */
+    padding: 10px;
+    margin: 0;
+    scrollbar-width: none; /* Firefox */
   }
 
   .menu::-webkit-scrollbar {
-    display: none; /* nasconde la scrollbar su Chrome */
+    display: none; /* Chrome, Safari */
   }
 
   .menu li {
     flex: 0 0 auto;
-    margin: 0 8px;
   }
 
   .menu li a {
-    font-size: 18px;
+    font-size: 16px;
     padding: 8px 12px;
+    white-space: nowrap;
+    background-color: #111;
+    border-radius: 4px;
   }
 }
     @media (max-width: 480px) {
