@@ -658,6 +658,12 @@
   transform: none;
   margin: 0;
 }
+#data-ora-oggi {
+      font-weight: bold;
+      font-size: 1.5em;
+      text-align: center;
+      margin-top: 50px; /* Sposta la data più in basso */
+    }
   </style>
 </head>
 <body>
@@ -691,7 +697,35 @@
   <div class="blinking-text1">!!!!!!!!    LET'S ROCK    !!!!!!!!</div>
   <img src="immagini/bannerextra.png" alt="Banner destra" class="banner-rock-small">
 </div>
+<p id="data-ora-oggi" style="font-weight: bold; font-size: 1.2em;"></p>
+<script>
+  function aggiornaDataEOra() {
+    const giorniSettimana = ["Domenica", "Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato"];
+    const mesi = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"];
 
+    const oraAttuale = new Date();
+    const giornoSettimana = giorniSettimana[oraAttuale.getDay()];
+    const giorno = oraAttuale.getDate();
+    const mese = mesi[oraAttuale.getMonth()];
+    const anno = oraAttuale.getFullYear();
+
+    let ore = oraAttuale.getHours();
+    let minuti = oraAttuale.getMinutes();
+    let secondi = oraAttuale.getSeconds();
+
+    // Aggiunge lo zero davanti se < 10
+    ore = ore < 10 ? "0" + ore : ore;
+    minuti = minuti < 10 ? "0" + minuti : minuti;
+    secondi = secondi < 10 ? "0" + secondi : secondi;
+
+    const dataOraCompleta = `${giornoSettimana} ${giorno} ${mese} ${anno} - ${ore}:${minuti}:${secondi}`;
+    document.getElementById("data-ora-oggi").innerText = dataOraCompleta;
+  }
+
+  // Aggiorna ogni secondo
+  setInterval(aggiornaDataEOra, 1000);
+  aggiornaDataEOra(); // Chiamata iniziale
+</script>
   <!-- Layout principale -->
   <div class="layout">
 
