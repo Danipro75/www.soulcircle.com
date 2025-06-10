@@ -15,7 +15,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="immagini/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="immagini/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="immagini/favicon-16x16.png">
-  <link rel="manifest" href="https://danipro75.github.io/www.soulcircle.com.webmanifest">
+  <link rel="manifest" href="https://danipro75.github.io/www.soulcircle.com/manifest.webmanifest">
   
   <title>SoulCircle - Official</title>
   <style>
@@ -879,7 +879,9 @@
         lightbox.style.display = 'flex';
       });
     });
-
+	document.getElementById('lightbox-close').addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
     lightboxClose.addEventListener('click', () => {
       lightbox.style.display = 'none';
     });
