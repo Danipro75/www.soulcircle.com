@@ -664,12 +664,25 @@
       text-align: center;
       margin-top: 50px; /* Sposta la data più in basso */
     }
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.3; /* Regola la trasparenza */
+}
   </style>
 </head>
 <body>
-
-  <!-- Effetto fumo -->
-  <div id="fumo"></div>
+ 
+  <!-- Video di sfondo alla scritta lampeggiante -->
+<video autoplay muted loop playsinline id="bg-video">
+  <source src="immagini/intro.mp4" type="video/mp4">
+  Il tuo browser non supporta i video HTML5.
+</video>
 
   <!-- Header -->
   <header>
@@ -728,7 +741,6 @@
 </script>
   <!-- Layout principale -->
   <div class="layout">
-
     <!-- Colonna sinistra -->
     <aside class="side left">
       <h3>Storico Eventi</h3>
