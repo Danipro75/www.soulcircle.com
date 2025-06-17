@@ -674,27 +674,31 @@
   z-index: -1;
   opacity: 0.3; /* Regola la trasparenza */
 }
+#home-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #e60000;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background 0.3s, transform 0.2s;
+}
+
+#home-button:hover {
+  background-color: #cc0000;
+  transform: scale(1.05);
+}
   </style>
-
-<!-- Matomo -->
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://soulcircleband.matomo.cloud/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '3']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src='https://cdn.matomo.cloud/soulcircleband.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
-
 </head>
+
 <body>
- 
+<div id="top"></div> <!-- questo va in cima alla pagina --> 
   <!-- Video di sfondo alla scritta lampeggiante -->
 <video autoplay muted loop playsinline id="bg-video">
   <source src="immagini/intro.mp4" type="video/mp4">
@@ -728,6 +732,7 @@
   <img src="immagini/bannerextra.png" alt="Banner destra" class="banner-rock-small">
 </div>
 <p id="data-ora-oggi" style="font-weight: bold; font-size: 1.2em;"></p>
+<button id="home-button" title="Torna su">Home ?</button>
 <script>
   function aggiornaDataEOra() {
     const giorniSettimana = ["Domenica", "Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato"];
@@ -921,5 +926,26 @@
       }
     });
   </script>
+  
+  <script>
+ document.getElementById("home-button").addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+ </script>
+ <!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://soulcircleband.matomo.cloud/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src='https://cdn.matomo.cloud/soulcircleband.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
 </body>
 </html>
