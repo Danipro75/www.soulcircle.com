@@ -16,7 +16,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="immagini/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="immagini/favicon-16x16.png">
   <link rel="manifest" href="https://danipro75.github.io/www.soulcircle.com/manifest.webmanifest">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>SoulCircle - Official</title>
   <style>
     * {
@@ -674,25 +674,30 @@
   z-index: -1;
   opacity: 0.3; /* Regola la trasparenza */
 }
-#home-button {
+.home-btn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #e60000;
-  color: #fff;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
   border: none;
-  padding: 12px 18px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 16px;
-  z-index: 999;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: background 0.3s, transform 0.2s;
+  font-size: 22px;
+  box-shadow: 0 4px 8px rgba(255,0,79,0.4);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
 }
 
-#home-button:hover {
-  background-color: #cc0000;
-  transform: scale(1.05);
+.home-btn i {
+  color: #ff004f; /* colore icona */
+}
+
+.home-btn.show {
+  opacity: 1;
+  visibility: visible;
 }
   </style>
 </head>
@@ -732,7 +737,9 @@
   <img src="immagini/bannerextra.png" alt="Banner destra" class="banner-rock-small">
 </div>
 <p id="data-ora-oggi" style="font-weight: bold; font-size: 1.2em;"></p>
-<button id="home-button" title="Torna su">Home ?</button>
+<button id="home-button" class="home-btn" title="Torna su">
+  <i class="fas fa-home"></i>
+</button>
 <script>
   function aggiornaDataEOra() {
     const giorniSettimana = ["Domenica", "Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato"];
@@ -928,10 +935,23 @@
   </script>
   
   <script>
- document.getElementById("home-button").addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
- </script>
+  const homeButton = document.getElementById('home-button');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      homeButton.classList.add('show');
+    } else {
+      homeButton.classList.remove('show');
+    }
+  });
+
+  homeButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
  <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
