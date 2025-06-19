@@ -700,69 +700,6 @@
   opacity: 1;
   visibility: visible;
 }
-#valutazione form {
-  background-color: #111;
-  padding: 20px;
-  border-radius: 10px;
-  color: #fff;
-  max-width: 500px;
-  margin-top: 20px;
-}
-
-#valutazione label {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-#valutazione select,
-#valutazione textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  background-color: #222;
-  border: 1px solid #333;
-  color: #fff;
-  border-radius: 5px;
-  align-items: center;      /* Centra verticalmente */
-  justify-content: center;  /* Centra orizzontalmente */
-}
-
-#valutazione button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #e60000;
-  border: none;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  align-items: center;      /* Centra verticalmente */
-  justify-content: center;  /* Centra orizzontalmente */
-}
-
-#valutazione button:hover {
-  background-color: #ff3333;
-}
-.stelle {
-  direction: rtl; /* Per clic da destra a sinistra */
-  unicode-bidi: bidi-override;
-  font-size: 2rem;
-  cursor: pointer;
-  margin: 10px 0;
-}
-.stelle span {
-  color: #444;
-  transition: color 0.2s;
-}
-.stelle span:hover,
-.stelle span:hover ~ span {
-  color: gold;
-}
-.stelle span.selezionata,
-.stelle span.selezionata ~ span {
-  color: gold;
-}
   </style>
 </head>
 
@@ -918,30 +855,7 @@
     			<img src="immagini/foto6.JPG" alt="GENTE DI TERRANUOVA - Terranuova Bracciolini" class="side-banner zoomable" data-caption="GENTE DI TERRANUOVA - Terranuova Bracciolini">
   			</div>
     </section>	
-    <section id="valutazione">
- 	  <h2>Hai partecipato a un nostro concerto?</h2>
-	  <p>Dicci cosa ne pensi! Lascia una valutazione:</p>
-	  <form id="form-valutazione">
-  <label for="stelle">Valutazione:</label>
-  <div class="stelle" id="stelle">
-    <span data-val="5">&#9733</span>
-    <span data-val="4">&#9733</span>
-    <span data-val="3">&#9733</span>
-    <span data-val="2">&#9733</span>
-    <span data-val="1">&#9733</span>
-  </div>
 
-  <label for="commento">Commento (facoltativo):</label>
-  <textarea id="commento" rows="4" placeholder="Scrivi la tua opinione..."></textarea>
-
-  <button type="submit">Invia</button>
-</form>
-
-<div id="feedback-inviato" style="display:none;">
-  <h3>Grazie per la tua valutazione!</h3>
-</div>
-<div id="storico"></div>
-</section>
       <section id="contatti">
         <h2>Contatti</h2>
         <p>Per INFO scrivici su WhatsApp al: <strong>+39 3471754804</strong> o a <a href="mailto:dprocelli@libero.it">dprocelli@libero.it</a></p>
@@ -1067,41 +981,6 @@
     "https://www.instagram.com/soulcircle.rockband"
   ]
 }
-</script>
-<script>
-  let valutazione = 0;
-
-  document.querySelectorAll(".stelle span").forEach(stella => {
-    stella.addEventListener("click", () => {
-      valutazione = parseInt(stella.dataset.val);
-
-      // Rimuovi tutte le selezioni
-      document.querySelectorAll(".stelle span").forEach(s => s.classList.remove("selezionata"));
-
-      // Aggiungi la selezione fino alla stella cliccata
-      document.querySelectorAll(".stelle span").forEach(s => {
-        if (parseInt(s.dataset.val) <= valutazione) {
-          s.classList.add("selezionata");
-        }
-      });
-    });
-  });
-
-  document.getElementById("form-valutazione").addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    const commento = document.getElementById("commento").value;
-
-    if (valutazione === 0) {
-      alert("Per favore, seleziona una valutazione con le stelle.");
-      return;
-    }
-
-    console.log("Valutazione inviata:", { valutazione, commento });
-
-    document.getElementById("form-valutazione").style.display = "none";
-    document.getElementById("feedback-inviato").style.display = "block";
-  });
 </script>
 </body>
 </html>
